@@ -64,7 +64,7 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 
 4. Run App:
    ```sh
-   python manage.py createsuperuser
+   python manage.py runserver
 
 ## Usage
 
