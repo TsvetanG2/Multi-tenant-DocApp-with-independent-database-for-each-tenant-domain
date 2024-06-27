@@ -12,7 +12,9 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 - **RESTful API:** Exposes a RESTful API for integration with other services.
 - **Scalable and Extendable:** Built to accommodate growth and additional features.
 
-#### **How it works:** Each doctor creates its own patients and appointments. They are being assigned to him by their ID and cannot be viewed, changed or deleted by other users(doctors).
+## How it works:
+- For each created tenant with domain, there will be a seperated database independent from the other tenants. You can create users and doctors. Assing the user to the doctor and assign the doctor to the domain(tenant) via the admin panel.
+- Each doctor creates its own patients and appointments. They are being assigned to him by their ID and cannot be viewed, changed or deleted by other users(doctors).
 
 ## Repository Structure
 
@@ -80,8 +82,9 @@ To access the domain go to:
    your_domain:your_default_port
 
 - Same way you can access admin if you add **/admin** by the end of the port.
-- Create a user via the admin panel, then create a doctor and assign the doctor to the user.
-- Login via adding **/login** page by addmin it by the end of the port.
+- Create a user via the admin panel, then create a doctor and assign the doctor to the user and the domain.
+- Login via adding **/login** page by adding it by the end of the port.
+- Use the user's credentials to access the app.
 
 ## Contributing and Ideas
 
