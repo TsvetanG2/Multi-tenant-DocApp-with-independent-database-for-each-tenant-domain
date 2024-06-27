@@ -5,11 +5,14 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 ## Features
 
 - **Multi-tenancy:** Each tenant (organization or domain) has its own isolated database.
+- **Multi-user dashboard, records and calendar:** Each doctor has it's own calendar, dashboard and records. Which means that for each doctor you create and assign a user, there will be an independent patients with events.
 - **Doctor Appointments:** Manage appointments with a calendar view and dashboard categorizing appointments into active, archived, and completed.
 - **Patient Records:** Maintain patient records, ensuring that only patients with existing records can be added to appointments.
 - **User Authentication and Authorization:** Secure user authentication and role-based access control (RBAC).
 - **RESTful API:** Exposes a RESTful API for integration with other services.
 - **Scalable and Extendable:** Built to accommodate growth and additional features.
+
+#### **How it works:** Each doctor creates its own patients and appointments. They are being assigned to him by their ID and cannot be viewed, changed or deleted by other users(doctors).
 
 ## Repository Structure
 
