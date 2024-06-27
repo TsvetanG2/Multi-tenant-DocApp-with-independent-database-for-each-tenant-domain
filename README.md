@@ -4,14 +4,12 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 
 ## Features
 
-- **Appointments Management**
-  - Create, view, and manage appointments.
-  - Dashboard displaying all active, archived, and completed appointments.
-  - Prevents adding appointments for patients without existing records.
-
-- **Patient Records**
-  - Add, view, and manage patient records.
-  - Ensures each patient has a unique record within the tenant domain.
+- **Multi-tenancy:** Each tenant (organization or domain) has its own isolated database.
+- **Doctor Appointments:** Manage appointments with a calendar view and dashboard categorizing appointments into active, archived, and completed.
+- **Patient Records:** Maintain patient records, ensuring that only patients with existing records can be added to appointments.
+- **User Authentication and Authorization:** Secure user authentication and role-based access control (RBAC).
+- **RESTful API:** Exposes a RESTful API for integration with other services.
+- **Scalable and Extendable:** Built to accommodate growth and additional features.
 
 ## Repository Structure
 
@@ -21,16 +19,16 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```sh
    git clone https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain.git
    cd Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```sh
    pip install -r requirements.txt
 
-3. Set-up the database in settings.py
+3. **Set-up the database in settings.py**
    ```sh
    DATABASES = {
     "default": {
@@ -45,16 +43,16 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
 
 ## Run App
 
-1. Make Migrations:
+1. **Make Migrations:**
    ```sh
    python manage.py makemigrations
 
-2. Migrate:
+2. **Migrate:**
    ```sh
    python manage.py migrate_schemas --shared
    python manage.py migrate
 
-3. Create a superuser, so you can add a tenant and domain:
+3. **Create a superuser, so you can add a tenant and domain:**
    ```sh
    python manage.py createsuperuser
 
@@ -62,7 +60,7 @@ Welcome to the Doctors Multi-Tenant Management App repository! This application 
   ```sh
   python manage.py create_tenant_superuser
 
-4. Run App:
+4. **Run App:**
    ```sh
    python manage.py runserver
 
