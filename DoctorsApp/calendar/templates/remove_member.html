@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Delete Member</h1>
+    <p>Are you sure you want to remove the member "{{ member.name }}" from appointment: "{{ event.title }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, remove</button>
+        <a href="{% url 'event-detail' event.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
