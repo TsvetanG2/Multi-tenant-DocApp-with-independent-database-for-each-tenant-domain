@@ -13,8 +13,8 @@ This repository contains a multi-tenant doctor appointments application with ind
 - **Scalable and Extendable:** Built to accommodate growth and additional features.
 
 ## How it works:
-- For each created tenant with domain, there will be a seperated database independent from the other tenants. You can create users and doctors. Assing the user to the doctor and assign the doctor to the domain(tenant) via the admin panel.
-- Each doctor creates its own patients and appointments. They are being assigned to him by their ID and cannot be viewed, changed or deleted by other users(doctors).
+- For each created tenant with domain, there will be a seperated database independent from the other tenants. You can create users and doctors. Assign the user to the doctor and assign the doctor to the domain(tenant) via the admin panel.
+- Each doctor creates its own patients and appointments. Each element is being assigned to him by their id in the database and cannot be viewed, changed or deleted by other users(doctors).
 
 ## Repository Structure
 
