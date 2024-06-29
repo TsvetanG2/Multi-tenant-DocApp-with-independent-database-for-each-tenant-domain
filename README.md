@@ -5,9 +5,10 @@ This repository contains a multi-tenant doctor appointments application with ind
 ## Features
 
 - **Multi-tenancy:** Each tenant (organization or domain) has its own isolated database.
-- **Multi-user dashboard, records and calendar:** Each doctor has it's own calendar, dashboard and records. Which means that for each doctor you create and assign a user, there will be an independent patients with events.
+- **Multi-user dashboard, records and calendar:** Each doctor has it's own calendar, dashboard and records. Each patient registered under the doctor via "Add Records" will be assigned only to that doctor.
 - **Doctor Appointments:** Manage appointments with a calendar view and dashboard categorizing appointments into active, archived, and completed.
 - **Patient Records:** Maintain patient records, ensuring that only patients with existing records can be added to appointments.
+- **Patient Appointments:** Multiple patients can be added to a single event, only if the record of the patient exist.
 - **User Authentication and Authorization:** Secure user authentication and role-based access control (RBAC).
 - **RESTful API:** Exposes a RESTful API for integration with other services.
 - **Scalable and Extendable:** Built to accommodate growth and additional features.
