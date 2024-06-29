@@ -1,4 +1,4 @@
-# Multi-tenant Doctor Appointments with Independent Databases
+# Multi-tenant Doc App with Independent Databases
 ## Overview
 This repository contains a multi-tenant doctor appointments application with independent databases for each tenant domain. It is designed to provide a scalable and secure solution for managing appointments across multiple tenants while ensuring data isolation and privacy.
 
