@@ -73,14 +73,14 @@ This repository contains a multi-tenant doctor appointments application with ind
 ## Usage
 
 - Once you run the app you will be prompted to **your_default_host:your_dafault_port** . A Django default homepage will appear that installation has been completed.
-Go to:
+- In order to access the main admin panel you have to go to:
   ```sh
-   your_default_host:your_dafault_port/admin
+   your_default_host:your_dafault_port/admin Example(example.com:8000/admin)
 
 - There you can add tenant and domain. First add a tenant, then assign the tenant to the domain.
  To access the domain go to:
    ```sh
-    your_domain:your_default_port
+    your_custom_domain_name:your_default_port Example(example.com:8000)
 
 - Same way you can access admin if you add **/admin** by the end of the port.
 - Create a user via the admin panel, then create a doctor and assign the doctor to the user and the domain.
