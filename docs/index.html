@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-tenant Doc App with Independent Databases</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional: Link your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Multi-tenant Doc App with Independent Databases</h1>
+        <p>This repository contains a multi-tenant doctor appointments application with independent databases for each tenant domain. It is designed to provide a scalable and secure solution for managing appointments across multiple tenants while ensuring data isolation and privacy.</p>
+    </header>
 
+    <main>
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Multi-tenancy:</strong> Each tenant (organization or domain) has its own isolated database.</li>
+                <li><strong>Multi-user dashboard, records, and calendar:</strong> Each doctor has their own calendar, dashboard, and records. Patients registered under the doctor are assigned exclusively to that doctor.</li>
+                <li><strong>Doctor Appointments:</strong> Manage appointments with a calendar view and dashboard categorizing appointments into active, archived, and completed.</li>
+                <li><strong>Patient Records:</strong> Maintain patient records, ensuring only patients with existing records can be added to appointments.</li>
+                <li><strong>Patient Appointments:</strong> Multiple patients can be added to a single event, only if the patient's record exists.</li>
+                <li><strong>User Authentication and Authorization:</strong> Secure user authentication and role-based access control (RBAC).</li>
+                <li><strong>RESTful API:</strong> Exposes a RESTful API for integration with other services.</li>
+                <li><strong>Scalable and Extendable:</strong> Built to accommodate growth and additional features.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <p>For each created tenant with a domain, there will be a separate database independent from the other tenants. You can create users and doctors, assign users to doctors, and assign doctors to the domain (tenant) via the admin panel. Each doctor manages their own patients and appointments, with data isolated by database IDs, ensuring no cross-user interference.</p>
+        </section>
+
+        <section>
+            <h2>Repository Structure</h2>
+            <ul>
+                <li><strong>DoctorsApp/:</strong> Main application directory containing all the core functionalities and modules.</li>
+                <li><strong>manage.py:</strong> Command-line utility for administrative tasks.</li>
+                <li><strong>requirements.txt:</strong> List of dependencies required to run the application.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation</h2>
+            <ol>
+                <li><strong>Clone the repository:</strong>
+                    <pre><code>git clone https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain.git
+cd Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain</code></pre>
+                </li>
+                <li><strong>Install dependencies:</strong>
+                    <pre><code>pip install -r requirements.txt</code></pre>
+                </li>
+                <li><strong>Set up the database in settings.py:</strong>
+                    <pre><code>DATABASES = {
+    "default": {
+        "ENGINE": 'django_tenants.postgresql_backend',
+        "NAME": "your_database",
+        "USER": "your_user",
+        "PASSWORD": "your_password",
+        "HOST": "your_default_host",
+        "PORT": "your_default_port",
+    }
+}</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Run App</h2>
+            <ol>
+                <li><strong>Make migrations:</strong>
+                    <pre><code>python manage.py makemigrations</code></pre>
+                </li>
+                <li><strong>Migrate:</strong>
+                    <pre><code>python manage.py migrate_schemas --shared
+python manage.py migrate</code></pre>
+                </li>
+                <li><strong>Create a superuser:</strong>
+                    <pre><code>python manage.py createsuperuser</code></pre>
+                </li>
+                <li><strong>Create a tenant superuser:</strong>
+                    <pre><code>python manage.py create_tenant_superuser</code></pre>
+                </li>
+                <li><strong>Run the app:</strong>
+                    <pre><code>python manage.py runserver</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Usage</h2>
+            <p>Once the app is running, visit <code>your_default_host:your_default_port</code>. To access the main admin panel, navigate to <code>your_default_host:your_default_port/admin</code>. Add tenants and domains, then assign users and doctors as needed. Login pages are available at <code>your_custom_domain_name:your_default_port/login</code>.</p>
+        </section>
+
+        <section>
+            <h2>Contributing</h2>
+            <p>Contributions are welcome! Please fork the repository and create a pull request with your changes.</p>
+        </section>
+
+        <section>
+            <h2>License</h2>
+            <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+        </section>
+
+        <section>
+            <h2>App Screenshots</h2>
+            <ul>
+                <li><strong>Django Default Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/f2b90ef0-94c2-4e56-b20e-b7b69815fb4a" alt="Django Default Page">
+                </li>
+                <li><strong>Django Admin Panel:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/d42ca25d-63fb-4a9d-829d-03fcf0ba9c0b" alt="Django Admin Panel">
+                </li>
+                <li><strong>Tenant-Domain Admin Panel:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/daa4cffc-50ee-4091-8219-d6b791eeccce" alt="Tenant-Domain Admin Panel">
+                </li>
+                <li><strong>Tenant-Domain Login Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/36cfacd2-da1e-4900-b4fa-aa2f89da1c9f" alt="Tenant-Domain Login Page">
+                </li>
+                <li><strong>Tenant-Domain Home Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/36099824-3518-4407-8e7e-8d9193fe6dbf" alt="Tenant-Domain Home Page">
+                </li>
+                <li><strong>Tenant-Domain Add Record Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/20c752b8-497a-4773-81e5-137c2d59acaa" alt="Tenant-Domain Add Record Page">
+                </li>
+                <li><strong>Tenant-Domain Calendar Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/dfedb3e1-d3a3-415b-b45d-eced8c250c0d" alt="Tenant-Domain Calendar Page">
+                </li>
+                <li><strong>Tenant-Domain Dashboard Page:</strong>
+                    <img src="https://github.com/TsvetanG2/Multi-tenant-DocApp-with-independent-database-for-each-tenant-domain/assets/106432651/3e969669-bacc-4219-b49a-e3b77a77cd92" alt="Tenant-Domain Dashboard Page">
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Multi-tenant Doc App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
