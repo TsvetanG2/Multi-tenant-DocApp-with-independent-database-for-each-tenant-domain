@@ -1,0 +1,50 @@
+{% extends 'BaseTenants/base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+{% block content %}
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrap d-md-flex">
+                        {% load static %}
+                        <div class="text-wrap w-50 p-lg-100 d-flex img" style="background-image: url({% static 'images/DocCover.png' %});">
+                        </div>
+                        <div class="login-wrap p-4 p-md-5">
+                            <div class="row justify-content-center py-md-5">
+                                <div class="col-lg-9">
+                                    <form method="POST" action="{% url 'home' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="social-wrap">
+                                                    <h3 class="mb-3 text-center">Login form</h3>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="label" for="id_username">Username:</label>
+                                                    <input type="text" class="form-control" name="username" id="id_username" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="id_password">Password</label>
+                                                    <input type="password" class="form-control" name="password" id="id_password" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary">Sign In</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

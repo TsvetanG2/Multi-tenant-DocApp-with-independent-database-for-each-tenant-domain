@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Running Appointments{% endblock title %}
+
+{% block breadcrumb %}
+    <div>
+        <h1><i class="fa fa-archive"></i> Running Appointments</h1>
+        <p>View all currenlty active appointments</p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="{% url 'running-events' %}">Running Appointments</a></li>
+    </ul>
+{% endblock breadcrumb %}
+
+{% block content %}
+    <div class="tile">
+        <div class="tile-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="archivedEventsTable">
+                    <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in running_events %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ event.title }}</td>
+                            <td>{{ event.description }}</td>
+                            <td>{{ event.start_time }}</td>
+                            <td>{{ event.end_time }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block extrascripts %}
+    <script type="text/javascript" src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins/dataTables.bootstrap.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#archivedEventsTable').DataTable();
+        });
+    </script>
+{% endblock extrascripts %}
